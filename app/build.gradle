@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('../keystore/debug.keystore')
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.aswsl.amap"
@@ -62,6 +67,14 @@ dependencies {
     //ButterKnife
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    // 内存泄漏检测工具
+
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
 //    //3D地图so及jar
 //    implementation 'com.amap.api:3dmap:latest.integration'
 //    //定位功能

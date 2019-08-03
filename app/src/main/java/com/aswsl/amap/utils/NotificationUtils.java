@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 
+import com.aswsl.amap.AlarmMainActivity;
 import com.aswsl.amap.MainActivity;
 
 public class NotificationUtils extends ContextWrapper {
@@ -58,8 +59,9 @@ public class NotificationUtils extends ContextWrapper {
         //
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             //
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, AlarmMainActivity.class);
             //
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             return new Notification.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                     .setContentIntent(PendingIntent.
                             getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT))
