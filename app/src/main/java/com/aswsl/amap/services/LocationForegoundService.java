@@ -47,7 +47,7 @@ public class LocationForegoundService extends Service {
         //
 
 //        Notification.Builder builder = new Notification.Builder(getApplicationContext());
-//        Intent nfIntent = new Intent(this, MainActivity.class);
+//        Intent nfIntent = new Intent(this, ForegroundActivity.class);
 //        builder.setContentIntent(PendingIntent.getActivity(this, 0, nfIntent, 0))
 //                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),R.mipmap.ic_launcher))
 //                .setSmallIcon(R.mipmap.ic_launcher)

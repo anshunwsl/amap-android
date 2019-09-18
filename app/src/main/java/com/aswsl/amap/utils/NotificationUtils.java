@@ -12,7 +12,6 @@ import android.graphics.Color;
 import android.os.Build;
 
 import com.aswsl.amap.AlarmMainActivity;
-import com.aswsl.amap.MainActivity;
 
 public class NotificationUtils extends ContextWrapper {
 
