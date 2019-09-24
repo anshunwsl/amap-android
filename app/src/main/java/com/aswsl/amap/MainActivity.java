@@ -1,10 +1,15 @@
 package com.aswsl.amap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import com.aswsl.amap.rd01.WLWakefulReceiver;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -14,11 +19,24 @@ public class MainActivity extends AppCompatActivity {
 
     //
     private Unbinder unbinder=null;
+    //
+    private WLWakefulReceiver wlWakefulReceiver=null;
+    //
+    private  String START_LOCATION="startLocation";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
+        //
+        //
+        wlWakefulReceiver=new WLWakefulReceiver();
+        //
+        IntentFilter intentFilter=new IntentFilter(START_LOCATION);
+        //
+//        registerReceiver( wlWakefulReceiver,intentFilter);
+        //
+        LocalBroadcastManager.getInstance(this).registerReceiver(wlWakefulReceiver,intentFilter);
       unbinder=  ButterKnife.bind(this);
     }
     //
@@ -52,9 +70,45 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //
+
+
+    @OnClick(R.id.btn_test_service)
+    public void  onBtnTestClick(View view){
+        //
+        //
+        Intent intent=new Intent(this,TestActivity.class);
+        startActivity(intent);
+    }
+    //
+    //
+    @OnClick(R.id.btn_bd)
+    public  void  onBtnBdClick(View view){
+        //
+//        Intent intent = new Intent();
+//        //
+//        intent.setAction(START_LOCATION);
+//        intent.putExtra("msg", "定位定位定位");
+//        //
+//        Log.d("dd","start location...");
+//        //
+//
+//        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+//        sendBroadcast(intent);
+        //
+
+        //Inte
+        Intent intent=new Intent(this,WLWakeServiceActivity.class);
+        //
+        startActivity(intent);
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+        //
+        unregisterReceiver(wlWakefulReceiver);
     }
 }

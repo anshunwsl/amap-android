@@ -3,4 +3,6 @@
     <string name="btn_foreground_label">前台服务定位</string>
     <string name="btn_alarm_label">闹钟定时定位</string>
     <string name="btn_alarm_service_label">闹钟后台服务定位</string>
+    <string name="btn_test_service_label">单列后台服务定位</string>
+    <string name="btn_bd_label">广播定位</string>
 </resources>

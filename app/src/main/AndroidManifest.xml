@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission  android:name="android.permission.CHANGE_CONFIGURATION"/> <!-- 请求网络 -->
+<!--    <uses-permission  android:name="android.permission.CHANGE_CONFIGURATION"/> &lt;!&ndash; 请求网络 &ndash;&gt;-->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 不是SDK需要的权限，是示例中的后台唤醒定位需要的权限 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 需要运行时注册的权限 -->
     <!-- 用于进行网络定位 -->
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读取缓存数据 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 用于读取手机当前的状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 更改设置 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<!--    <uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
     <!-- 如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <!-- 如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明 -->
@@ -57,6 +57,11 @@
         </activity>
 
         <activity android:name=".AlarmServiceActivity"></activity>
+
+        <activity android:name=".TestActivity"></activity>
+
+        <activity android:name=".WLWakeServiceActivity"></activity>
+
         <activity
             android:name=".AlarmMainActivity">
             <!--<intent-filter>-->
@@ -71,6 +76,19 @@
         <service android:name=".services.LocationForegoundService" />
 
         <service android:name=".services.LocationAlarmService"></service>
+
+        <service android:name=".temp.TestLocationService"></service>
+
+        <service android:name=".rd01.MyIntentService"></service>
+
+
+        <receiver android:name=".rd01.WLWakefulReceiver" >
+            <intent-filter>
+                <action android:name="startLocation" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

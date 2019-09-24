@@ -16,13 +16,16 @@ public class AMapApplication extends Application {
     //
 
     private RefWatcher refWatcher;
+    //
+    public  static  Context context=null;
     @Override
     public void onCreate() {
         super.onCreate();
         //
         //        LeakCanary.install(this);
         refWatcher=setupLeakCanary();
-
+        //
+        context=this;
     }
     //
     //
