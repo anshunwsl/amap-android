@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 //import com.evhai.hyt.singleton.UserInfo;
 //import com.evhai.hyt.utils.LogUtil;
 //import com.evhai.hyt.utils.dialog.DialogUtil;
-//import com.evhai.hyt.view.main.MainActivity;
+//import com.evhai.hyt.view.main.MainDamActivity;
 
 /**
  *
@@ -116,7 +116,7 @@ public class TestLocationService extends Service {
 //        @Override
 //        public void onFinish() {
 //            LogUtil.error(num + "次倒计时完成");
-//            StaticModel.updatePoint(AppManager.getAppManager().findActivity(MainActivity.class));
+//            StaticModel.updatePoint(AppManager.getAppManager().findActivity(MainDamActivity.class));
 //            num++;
 //            LogUtil.error(num + "次倒计时开始");
 //            startCount();

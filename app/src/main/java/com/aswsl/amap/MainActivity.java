@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.aswsl.amap.rd01.WLWakefulReceiver;
+import com.aswsl.amap.rd02.Demo;
+import com.aswsl.amap.rd03.MainDamActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -64,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_foreground)
     public  void onBtnForegroundClick(View view){
         //
-        Intent intent=new Intent(this,ForegroundActivity.class);
+//        Intent intent=new Intent(this,ForegroundActivity.class);
+        Intent intent=new Intent(this,DaemServiceActivity.class);
         //
         startActivity(intent);
 
@@ -77,7 +80,11 @@ public class MainActivity extends AppCompatActivity {
     public void  onBtnTestClick(View view){
         //
         //
-        Intent intent=new Intent(this,TestActivity.class);
+//        Intent intent=new Intent(this,TestActivity.class);
+//        startActivity(intent);
+        //
+        Intent intent=new Intent(this, DaemServiceActivity.class);
+        //
         startActivity(intent);
     }
     //
@@ -109,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unbinder.unbind();
         //
-        unregisterReceiver(wlWakefulReceiver);
+        if(wlWakefulReceiver!=null){
+            //
+            unregisterReceiver(wlWakefulReceiver);
+        }
+        //
+
     }
 }

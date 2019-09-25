@@ -74,6 +74,9 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     // 内存泄漏检测工具
 
+    //
+    implementation 'com.github.wangshihu123:DaemonLibrary:v1.2.1'
+
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
